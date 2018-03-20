@@ -1,0 +1,38 @@
+@import "_oa";
+
+@include font-face("icomoon", font-files("icomoon/fonts/icomoon.eot", "icomoon/fonts/icomoon.woff", "icomoon/fonts/icomoon.ttf", "icomoon/fonts/icomoon.svg"));
+[class^="icon-"], [class*=" icon-"] {
+  font-family: "icomoon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal;
+  @include font-smoothing(antialiased);
+}
+
+.icon-close:before {
+  content: "\e905";
+}
+.icon-inbox-download:before {
+  content: "\e904";
+}
+.icon-aaa_l:before {
+  content: "\e902";
+}
+.icon-aaa_r:before {
+  content: "\e903";
+}
+.icon-ar_l:before {
+  content: "\e900";
+}
+.icon-ar_r:before {
+  content: "\e901";
+}
+.icon-chevron-left:before {
+  content: "\e90f";
+}
+.icon-chevron-right:before {
+  content: "\e910";
+}
+.icon-chevron-up:before {
+  content: "\e911";
+}
+.icon-play3:before {
+  content: "\ea1c";
+}
