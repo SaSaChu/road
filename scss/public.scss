@@ -903,6 +903,10 @@ header {
         color: black;
         padding-left: 20px;
 
+        @include range-width(0, 450px) {
+          padding-left: 0;
+        }
+
         i {
           display: inline-block;
           font-style: normal;
@@ -932,11 +936,170 @@ header {
           &.ilb {background-color: rgba(125, 161, 212, 1.00);}
         }
 
+        .in_b_all {
+          display: inline-block;
+          width: 100%;
+          border-top: 1px solid white;
+          @include clearfix();
+          
+          &:first-child {
+            border-top: 0;
+          }
+
+          .in_b_4all {
+            display: inline-block;
+            width: 50%;
+            float: left;
+
+            @include range-width(0, 450px) {
+              width: 100%;
+            }
+
+            &:nth-child(n+2) {
+              .in_b_040 {
+                border-left: 1px solid white;
+              }
+            }
+
+            .in_b_040, .in_b_041 {
+              display: inline-block;
+              height: 70px;
+              line-height: 70px;
+              font-size: 18px;
+              font-weight: 600;
+              color: black;
+              float: left;
+              text-align: left;
+
+              @include range-width(0, 785px) {
+                height: auto;
+                line-height: normal;
+                font-size: 16px;
+                padding: 15px;
+              }
+            }
+
+            .in_b_040 {     
+              padding-left: 40px;       
+              width: 155px;            
+              border-right: 1px solid white;
+
+              @include range-width(450px, 785px) {
+                border-right: 0;
+                width: auto;
+                padding-left: 10px;  
+
+                &:after {
+                  display: inline-block;
+                  content: ':';
+                  margin: 0 5px;
+                }
+              }
+
+              @include range-width(0, 450px) {
+                border-right: 0;
+
+                &:after {
+                  display: inline-block;
+                  content: ':';
+                  margin: 0 5px;
+                }
+              }
+            }
+
+            .in_b_041 {
+              width: calc(100% - 155px);
+              padding-left: 20px;
+
+              @include range-width(0, 785px) {
+                width: auto;
+                padding-left: 0;
+              }
+            }
+          }
+
+          .in_b_020, .in_b_021 {
+            display: inline-block;
+            height: 70px;
+            line-height: 70px;
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+            float: left;
+            text-align: left;
+
+            @include range-width(0, 785px) {
+              height: auto;
+              line-height: normal;
+              font-size: 16px;
+              padding: 15px;
+            }
+          }
+          .in_b_020 {     
+            padding-left: 40px;       
+            width: 155px;            
+            border-right: 1px solid white;
+
+            @include range-width(0, 785px) {
+              border-right: 0;
+              width: auto;
+              padding-left: 15px;  
+
+              &:after {
+                display: inline-block;
+                content: ':';
+                margin: 0 5px;
+              }
+            }
+          }
+
+          .in_b_021 {
+            width: calc(100% - 155px);
+            padding-left: 20px;
+
+            @include range-width(450px, 785px) {
+              width: auto;
+              padding-left: 0;
+            }
+
+            @include range-width(0, 450px) {
+              padding:  15px 0 15px 15px;
+            }
+
+            &.in_red {
+              color: rgba(197, 27, 42, 1.00);
+            }
+
+            span {
+              display: inline-block;
+              height: 70px;
+              line-height: 70px;
+              font-size: 18px;
+              font-weight: 600;
+              color: black;
+              padding-right: 15px;
+
+              @include range-width(450px, 785px) {
+                height: auto;
+                line-height: normal;
+                font-size: 16px;
+              }
+
+              @include range-width(0, 450px) {
+                width: 100%;
+                font-size: 16px;
+                height: auto;
+                line-height: normal;
+              }
+            }
+          }
+        }
+
         .inq_table {
           display: table;
           width: 100%;
 
-          @include range-width(0, 450px) {
+          @include range-width(0, 785px) {
             display: block;
           }
           
@@ -944,59 +1107,59 @@ header {
             display: table-row;
             @include clearfix();
 
-            @include range-width(0, 450px) {
+            @include range-width(0, 785px) {
               display: block;
-              padding: 15px;
+              border-top: 1px solid white;
+
+              &:first-child {
+                border-top: 0;
+              }
             }
             
             .td {
               display: table-cell;
               width: calc(100% / 3);
+              border-top: 1px solid white;
               border-left: 1px solid white;
               padding: 15px;
+              color: black;
+              font-size: 18px;    
 
-              @include range-width(0, 450px) {
-                display: inline-block;
+              @include range-width(0, 785px) {
+                display: block;
                 width: 100%;
                 text-align: left;
+                padding: 10px; 
+                border-top: 0;
                 border-left: 0;
-                padding: 15px 0;
-              }
-            }
-
-            &:nth-child(n+2) {
-              .td {
-                border-top: 1px solid white;
-              }
-            }
-
-            &:first-child { // 第一行的 tr
-              .td {
-                position: relative;
-                padding: 0 0 15px 0;
 
                 &:before {
                   content: attr(title);
                   display: inline-block;
-                  border-bottom: 1px solid white;
-                  width: 100%;
-                  padding: 15px 0;
-                  margin-bottom: 15px;
+                  width: 110px;
                 }
-              }
+              } 
             }
 
-            @include range-width(0, 450px) {
-              &:first-child {
+            @include range-width(785px) {
+              &:first-child { // 第一行的 tr
                 .td {
+                  position: relative;
+                  padding: 0 0 15px 0;
+                  border-top: 0;
+
                   &:before {
-                    width: 100px;
-                    border-bottom: 0;
+                    content: attr(title);
+                    display: inline-block;
+                    border-bottom: 1px solid white;
+                    width: 100%;
+                    padding: 15px 0;
+                    margin-bottom: 15px;
                   }
                 }
               }
             }
-          }   
+          }
         }
       }
     }
