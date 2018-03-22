@@ -33,7 +33,7 @@ html {
     font-size: medium;
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif, "微軟正黑體", "Microsoft JhengHei";
 
-    background: rgba(242, 242, 242, 1.00);
+    background: rgba(242, 242, 242, .5);
 
     @include font-smoothing(antialiased);
   }
@@ -964,6 +964,16 @@ header {
           width: 100%;
           font-size: 18px;
           color: black;
+          @include clearfix();
+          
+          &.dw {
+            padding-top: 30px;
+            background-color: white;
+
+            @include range-width(0, 785px) {
+              background-color: rgba(232, 232, 232, 1.00);
+            }
+          }
 
           @include range-width(0,785px) {
             font-size: 16px;
@@ -995,10 +1005,21 @@ header {
 
             &.users {
               .date_l {
-                width: 170px;               
+                width: 170px;  
+
+                @include range-width(0, 785px) {
+                  width: 100%;
+                  padding: 10px 10px 5px 10px;
+                }             
               }
               .date_r {
                 width: calc(100% - 170px);
+
+                @include range-width(0, 785px) {
+                  width: 100%;
+                  border-left: 0;
+                  padding: 0 10px 15px 10px;
+                }
               }
             }
 
@@ -1048,6 +1069,80 @@ header {
                   margin: 5px 0;
                 }
               }
+            }
+          }
+
+          .d_tab {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px 50px;
+            background-color: rgba(150, 150, 150, 1.00);
+            @include transition(all .3s);
+            font-size: 16px;
+            color: white;
+            float: left;
+            margin-right: 10px;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            
+            &:hover, &:active, &.dt_ac {
+              background-color: rgba(125, 161, 212, 1.00);
+            }
+
+            @include range-width(0,785px) {
+              display: none;
+            }
+          }
+
+          .d_tab_m {
+            @include range-width(785px) {
+              display: none;
+            }
+
+            display: inline-block;
+            width: calc(100% / 3 - 5px * 2 / 3);
+            cursor: pointer;
+            padding: 10px 0;
+            background-color: rgba(150, 150, 150, 1.00);
+            @include transition(all .3s);
+            font-size: 16px;
+            color: white;
+            float: left;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-top-right-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-topright: 5px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-bottom: 30px;
+            
+            &:hover, &:active, &.dt_ac_m {
+              background-color: rgba(125, 161, 212, 1.00);
+            }
+
+            &:nth-child(2) {
+              margin: 0 5px;
+            }
+          }
+
+          a {
+            display: inline-block;
+            float: right;
+            font-size: 18px;
+            color: rgba(0, 64, 123, 1.00);
+            text-decoration: underline;
+            cursor: pointer;
+            margin-right: 10px;
+
+            @include range-width(0, 785px) {
+              float: left;
+              margin-right: 0;
+              margin-left: 10px;
+              margin-bottom: 10px;
             }
           }
         }
@@ -1222,6 +1317,12 @@ header {
                 border-top: 0;
               }
             }
+
+            &.n_date {
+              @include range-width(0, 785px) {
+                display: none;
+              }
+            }
             
             .td {
               display: table-cell;
@@ -1346,6 +1447,327 @@ header {
         width: 100%;
         background-color: white;
         padding: 40px 0;
+      }
+    }
+
+    .step_boxs {
+      display: inline-block;
+      width: 100%;
+      padding: 90px 0;
+
+      @include range-width(450px, 680px) {
+        padding: 40px 0;
+        width: 80%;
+      }
+
+      @include range-width(0, 450px) {
+        padding: 40px 0;
+        width: 95%;
+      }
+
+      > div {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin-right: 25px;
+        @include border-radius(50px);
+        background-color: rgba(235, 235, 235, 1.00);
+        position: relative;
+        padding: 15px;
+
+        &.step_ac {
+          background-color: rgba(0, 64, 123, 1.00);
+        }
+
+        &:after {
+          display: inline-block;
+          content: '';
+          width: 30px;
+          height: 5px;
+          background-color: rgba(235, 235, 235, 1.00);
+          position: absolute;
+          right: -30px;
+          top: 50px;
+        }
+
+        @include range-width(680px) {
+          &:last-child {
+            margin-right: 0;
+            &:after {
+              display: none;
+            }
+          }
+        }
+
+        @include range-width(0, 450px) {
+          width: 75px;
+          height: 75px;
+          padding: 8px;
+
+          &:after {
+            top: 38px;
+          }
+        }
+
+        @include range-width(0, 680px) {
+          &:last-child, &:nth-child(3) {
+            margin-right: 0;
+            &:after {
+              display: none;
+            }
+          }
+        }
+
+        i, span {
+          display: inline-block;
+          color: rgba(150, 150, 150, 1.00);
+
+          &.w {
+            color: white;
+          }
+        }
+
+        i {
+          font-size: 14px;
+          font-style: normal;
+          padding-bottom: 5px;
+        }
+
+        span {
+          font-size: 18px;
+          line-height: 20px;
+
+          @include range-width(0, 450px) {
+            font-size: 16px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+
+    .step_btn {
+      display: inline-block;
+      width: 100%;
+      padding: 40px 0;
+
+      a, button {
+        display: inline-block;
+        width: 150px;
+        cursor: pointer;
+        background-color: rgba(0, 93, 174, 1.00);
+        font-size: 14px;
+        color: white;
+        text-decoration: none;
+        border: 0;
+        outline: 0;
+        @include border-radius(3px);
+        padding: 10px 20px;
+        margin: 0 10px;
+
+        @include range-width(0, 495px) {
+          padding: 10px;
+          width: calc(50% - 40px);
+        }
+
+
+        &:hover, &:active {
+          background-color: rgba(197, 27, 41, 1.00);
+        } 
+
+        .icon-aaa_l, .icon-aaa_r {
+          margin: 3px 10px;
+        }
+
+        .icon-aaa_l {
+          float: left;
+        }
+
+        .icon-aaa_r {
+          float: right;
+        }
+      }
+    }
+
+    .step_con {
+      display: inline-block;
+      width: 100%;
+      padding: 0 20px;
+
+      &.grey {
+        background-color: rgba(235, 235, 235, 1.00);
+      }
+
+      @include range-width(0, 680px) {padding: 0 10px;}
+
+      .tab_boxs {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 25px;
+
+        a {
+          display: inline-block;
+          padding: 10px 45px;
+          background-color: rgba(197, 27, 42, 1.00);
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 600;
+          color: white;
+          @include transition(all .3s);
+          float: left;
+          margin-right: 10px;
+          text-decoration: none;
+          @include border-radius(3px);
+          
+          &:hover, &:active, &.tab_ok {
+            background-color: rgba(251, 34, 52, 1.00);
+          }
+        }
+
+        .date_list {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+
+          @include clearfix();
+          border-bottom: 1px solid white;
+          
+          .list_l, .list_r {
+            display: inline-block;
+            float: left;
+            height: 100%;
+
+            p {
+              display: inline-block;
+              width: 100%;
+              font-size: 18px;
+              margin: 0;
+              padding: 10px 20px;
+              height: 100%;
+            }
+          }
+
+          .list_l {
+            width: 310px;
+            background-color: rgba(0, 64, 123, 1.00);
+
+            p {
+              color: white;
+            }
+          }
+
+          .list_r {
+            width: calc(100% - 310px);
+            background-color: rgba(235, 235, 235, 1.00);
+
+            p {
+              color: black;
+            }
+
+            a {
+              display: inline-block;
+              cursor: pointer;
+              text-decoration: underline;
+              width: auto;
+              float: none;
+              background-color: transparent;
+              color: rgba(0, 65, 122, 1.00);
+              font-size: 18px;
+              font-weight: normal;
+              padding: 0;
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .step_tab {
+        display: inline-block;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 600;
+        color: white;
+        text-align: left;
+        background-color: rgba(0, 64, 123, 1.00);
+        padding: 10px 20px;
+      }
+
+      .aok {
+        display: inline-block;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgba(0, 65, 122, 1.00);
+        padding: 20px 0;
+      }
+
+      .step_type_boxs {
+        display: inline-block;
+        width: 100%;
+        padding: 0 30px;
+        text-align: left;
+
+        @include range-width(0, 680px) {padding: 0 10px;}
+
+        span {
+          display: inline-block;
+          width: 100%;
+          font-size: 24px;
+          color: rgba(0, 64, 123, 1.00);
+          font-weight: 600;
+          padding: 25px 0;
+          border-bottom: 3px solid rgba(220, 220, 220, 1.00);
+          margin-bottom: 20px;
+          @include range-width(0, 450px) {font-size: 18px;}
+        }
+
+        p {
+          display: inline-block;
+          width: 100%;
+          color: black;
+          font-size: 18px;
+          line-height: 30px;
+          margin: 0;
+
+          @include range-width(0, 450px) {font-size: 16px;}
+
+          &.pad {
+            padding: 20px 0;
+          }
+
+          &.ts01 {
+            padding-left: 90px;
+            margin-top: -30px;
+
+            @include range-width(0, 680px) {
+              padding-left: 0;
+              margin-top: 0;
+            }
+          }
+
+          a {
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+            @include transition(all .3s);
+            color: black;
+            
+            &:hover, &:active {
+              text-decoration: underline;
+              color: rgba(0, 64, 123, 1.00);
+            }
+
+            &.do {
+              padding-top: 20px;
+              text-decoration: underline;
+              color: rgba(0, 64, 123, 1.00);
+            }
+          }
+        }
+
+        img {
+          width: 100%;
+          max-width: 980px;
+        }
       }
     }
   }
