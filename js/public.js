@@ -56,13 +56,22 @@ $(function () {
     // 倒數時間為 1 分 30 秒, 格式為 mm分ss秒
     // 時間到了跳出對話方塊
     $('#counter2').countdown({
-      image: 'img/digits.png',
-      startTime: '124日12時12分00秒',
-      timerEnd: function(){
-        alert('時間終了!');
-      },
-      format: 'mm分ss秒'
-        });
+        stepTime: 60,
+        digitWidth: 34,
+        digitHeight: 45,
+        format: 'hh:mm:ss',
+        image: "img/digits2.png",
+        startTime: '124:12:12:00',
+        timerEnd: function(){
+          alert('時間終了!');
+        },
+    });
   });
-
+  $('.inq_date').each (function () {
+    var $that = $(this).attr ('data-i', 1);
+    $that.find ('.d_tab').click (function () {
+      $(this).addClass ('dt_ac').siblings ().removeClass ('dt_ac');
+      $that.attr ('data-i', $(this).index () + 1);
+    });
+  })
 });

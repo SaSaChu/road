@@ -754,6 +754,10 @@ header {
 
           #counter2 {
             clear: both;
+            &, * {
+              @include box-sizing(content-box);
+            }
+
           }
 
           .cntSeparator { /* 分隔符號的樣式 */
@@ -1093,41 +1097,51 @@ header {
               background-color: rgba(125, 161, 212, 1.00);
             }
 
+            // @include range-width(0,785px) {
+            //   display: none;
+            // }
+
+            &:before {
+              content: attr(data-text_1);
+            }
             @include range-width(0,785px) {
-              display: none;
+              &:before {
+                content: attr(data-text_2);
+              }
+              display: inline-block;
+              width: calc(100% / 3 - 5px * 2 / 3);
+              cursor: pointer;
+              padding: 10px 0;
+              background-color: rgba(150, 150, 150, 1.00);
+              @include transition(all .3s);
+              font-size: 16px;
+              margin: 0;
+              color: white;
+              float: left;
+              -webkit-border-top-left-radius: 5px;
+              -webkit-border-top-right-radius: 5px;
+              -moz-border-radius-topleft: 5px;
+              -moz-border-radius-topright: 5px;
+              border-top-left-radius: 5px;
+              border-top-right-radius: 5px;
+              margin-bottom: 30px;
+              
+              &:hover, &:active, &.dt_ac_m {
+                background-color: rgba(125, 161, 212, 1.00);
+              }
+
+              &:nth-child(2) {
+                margin: 0 5px;
+              }
             }
           }
 
-          .d_tab_m {
-            @include range-width(785px) {
-              display: none;
-            }
+          // .d_tab_m {
+          //   @include range-width(785px) {
+          //     display: none;
+          //   }
 
-            display: inline-block;
-            width: calc(100% / 3 - 5px * 2 / 3);
-            cursor: pointer;
-            padding: 10px 0;
-            background-color: rgba(150, 150, 150, 1.00);
-            @include transition(all .3s);
-            font-size: 16px;
-            color: white;
-            float: left;
-            -webkit-border-top-left-radius: 5px;
-            -webkit-border-top-right-radius: 5px;
-            -moz-border-radius-topleft: 5px;
-            -moz-border-radius-topright: 5px;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            margin-bottom: 30px;
-            
-            &:hover, &:active, &.dt_ac_m {
-              background-color: rgba(125, 161, 212, 1.00);
-            }
-
-            &:nth-child(2) {
-              margin: 0 5px;
-            }
-          }
+          // }
 
           a {
             display: inline-block;
@@ -1298,11 +1312,14 @@ header {
         }
 
         .inq_table {
-          display: table;
+          // display: table;
+          display: none;
+
           width: 100%;
 
           @include range-width(0, 785px) {
-            display: block;
+            // display: block;
+            display: none;
           }
           
           .tr {
@@ -1406,6 +1423,18 @@ header {
                     margin-bottom: 15px;
                   }
                 }
+              }
+            }
+          }
+        }
+
+        $c: 5;
+        @for $i from 1 through $c {
+          &[data-i='#{$i}'] {
+            .inq_table:nth-child(#{$i + 2}) {
+              display: table !important;
+              @include range-width(0, 785px) {
+                display: block !important;
               }
             }
           }
