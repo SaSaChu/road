@@ -1,0 +1,181 @@
+/**
+ * @author      ZEUS Design <service@zeusdesign.com.tw>
+ * @copyright   Copyright (c) 2015 - 2018, OAF2E
+ * @license     http://opensource.org/licenses/MIT  MIT License
+ * @link        https://www.zeusdesign.com.tw
+ */
+
+@import "_oa";
+
+button {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: rgba(59, 127, 195, 1.00);
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  @include border-radius(3px);
+  border: 0;
+  outline: 0;
+  @include transition(all .3s);
+  cursor: pointer;
+  @include clearfix();
+
+  &.inq_bt {
+    margin: 0 10px;
+
+    &:hover, &:active {
+      background-color: rgba(251, 34, 52, 1.00);
+    }
+
+    @include range-width(0, 730px) {
+      width: calc(50% - 20px);
+      float: left;
+    }
+  }
+
+  &:hover, &:active {
+    background-color: rgba(250, 34, 52, 1.00);
+  }
+
+  @include range-width(0, 730px) {
+    width: 100%;
+  }
+}
+
+i {
+  display: inline-block;
+  font-style: normal;
+  font-size: 14px;
+  color: rgba(197, 27, 42, 1.00);
+  padding-top: 3px;
+}
+
+.name {
+  display: inline-block;
+  width: 325px;
+  @include border-radius(3px);
+  padding: 5px 10px;
+  font-size: 18px;
+  color: black;
+  border: 1px solid white;
+  outline: 0;
+  margin-right: 15px;
+
+  @include range-width(0, 785px) {
+    width: 100%;
+  }
+
+  &:hover, &:active {
+    border: 1px solid rgba(125, 162, 213, 1.00);
+  }
+
+  &.n_155 {
+    width: 155px;
+
+    @include range-width(0, 785px) {
+      width: 100%;
+    }
+  }
+
+  &.n_100 {
+    width: 90%;
+
+    @include range-width(0, 785px) {
+      width: 100%;
+    }
+  }
+}
+
+.doll {
+  display: inline-block;
+  font-size: 18px;
+  color: black;
+
+  &.md {
+    margin-left: 10px;
+  }
+}
+
+.con {
+  display: inline-block;
+  width: 120px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border: 1px solid white;
+  @include border-radius(3px);
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  outline: 0;
+  background: url(../img/aad.png) no-repeat right white;
+
+  @include range-width(0, 785px) {
+    width: 100%;
+  }
+
+  &.con2 {
+    margin-bottom: 0;
+  }
+}
+
+
+.small {
+  display: inline-block;
+  color: black;
+  font-size: 14px;
+  padding-top: 10px;
+
+  @include range-width(0, 785px) {
+    padding-top: 5px;
+  }
+
+  &.blue {
+    color: rgba(0, 65, 122, 1.00);
+  }
+
+  &.nomal {
+    font-size: 18px;
+    margin-right: 10px;
+    padding-top: 5px;
+
+    @include range-width(0, 785px) {
+      width: 100%;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+
+.type01 {
+  display: inline-block;
+  font-size: 18px;
+  color: black;
+
+  @include range-width(0, 785px) {
+    font-size: 16px;
+    padding-top: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

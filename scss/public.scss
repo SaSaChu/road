@@ -832,12 +832,26 @@ header {
     max-width: 1120px;
     padding: 150px 0; 
 
+    @include range-width(0, 1145px) {
+      margin: 0 10px;
+      width: calc(100% - 20px);
+    }
+
     &.inq_top {
       margin-top: -95px;
       background-color: white;
       @include box-shadow(0 0 10px rgba(38, 38, 38, .2));
       padding: 20px;
       margin-bottom: 50px;
+
+      @include range-width(0, 450px) {
+        margin-top: -50px;
+        padding: 0;
+      }
+
+      &.no_bg {
+        padding: 0;
+      }
     }
 
     .inq_box {
@@ -896,6 +910,15 @@ header {
       margin: 50px 0;
       text-align: left;
 
+      &.mod {
+        margin: 100px 0;
+      }
+
+      @include range-width(0, 450px) {
+        padding: 20px;
+        margin: 20px 0;
+      }
+
       span {
         display: inline-block;
         width: 100%;
@@ -936,6 +959,90 @@ header {
           &.ilb {background-color: rgba(125, 161, 212, 1.00);}
         }
 
+        .date_boxs {
+          display: inline-block;
+          width: 100%;
+          font-size: 18px;
+          color: black;
+
+          @include range-width(0,785px) {
+            font-size: 16px;
+          }
+
+          &:nth-child(n+2) {
+            border-top: 1px solid white; 
+          }
+
+          .date_box {
+            display: inline-block;
+            width: 100%;
+            @include clearfix();
+            text-align: left;
+
+            &.date_box_50 {
+              display: inline-block;
+              width: 50%;
+              float: left;
+
+              @include range-width(0, 785px) {
+                width: 100%;
+
+                &:nth-child(n+2) {
+                  border-top: 1px solid white;
+                }
+              }
+            }
+
+            .date_l {
+              display: inline-block;
+              width: 155px;
+              float: left;
+              padding: 15px 10px; 
+
+              @include range-width(0, 785px) {
+                width: 100%;
+                padding: 10px 10px 5px 10px;
+              }
+            }
+
+            .date_r {
+              display: inline-block;
+              width: calc(100% - 155px);
+              float: left;
+              padding: 15px 10px;
+              border-left: 1px solid white;
+
+              @include range-width(0, 785px) {
+                width: 100%;
+                border-left: 0;
+                padding: 0 10px 15px 10px;
+              }
+
+              &.line2 {
+                border-right:  1px solid white;
+
+                @include range-width(0, 785px) {
+                  border-right: 0;
+                }
+              }
+
+              .da_de_boxs {
+                display: inline-block;
+                margin-right: 20px;
+
+                &.da_100 {
+                  width: 100%;
+                } 
+
+                @include range-width(0, 785px) {
+                  width: 100%;
+                  margin: 5px 0;
+                }
+              }
+            }
+          }
+        }
+
         .in_b_all {
           display: inline-block;
           width: 100%;
@@ -968,11 +1075,14 @@ header {
             .in_b_040, .in_b_041 {
               display: inline-block;
               font-size: 18px;
-              font-weight: 600;
               color: black;
               float: left;
               text-align: left;
               padding: 15px 0;
+
+              &.fixdate {
+                padding: 8px 0;
+              }
 
               @include range-width(0, 785px) {
                 font-size: 16px;
@@ -981,16 +1091,12 @@ header {
 
             .in_b_040 {      
               width: 155px;            
-              border-right: 1px solid white;
-              margin-right: 30px;
               text-align: center;
 
                @include range-width(0, 785px) {
-                border-right: 0;
                 text-align: left;
                 padding-left: 10px;
                 width: auto;
-                margin-right: 15px;
 
                 &:after {
                   display: inline-block;
@@ -1001,10 +1107,16 @@ header {
             }
 
             .in_b_041 {
-              width: calc(100% - 155px - 30px);
+              width: calc(100% - 155px);
+              border-right: 1px solid white;
+              border-left: 1px solid white;
+              padding-left: 30px;
 
               @include range-width(0, 785px) {
                 width: auto;
+                border-left: 0;
+                border-right: 0;
+                padding-left: 15px;               
               }
             }
           }
@@ -1012,11 +1124,14 @@ header {
           .in_b_020, .in_b_021 {
             display: inline-block;
             font-size: 18px;
-            font-weight: 600;
             color: black;
             float: left;
             text-align: left;
             padding: 15px 0;
+
+            &.fixdate {
+              padding: 8px 0;
+            }
 
             @include range-width(0, 785px) {
               font-size: 16px;
@@ -1025,16 +1140,12 @@ header {
 
           .in_b_020 {
             width: 155px;            
-            border-right: 1px solid white;
-            margin-right: 30px;
             text-align: center;
 
             @include range-width(0, 785px) {
-              border-right: 0;
               text-align: left;
               padding-left: 10px;
               width: auto;
-              margin-right: 15px;
 
               &:after {
                 display: inline-block;
@@ -1045,10 +1156,14 @@ header {
           }
 
           .in_b_021 {
-            width: calc(100% - 155px - 30px);
+            width: calc(100% - 155px);
+            border-left: 1px solid white;
+            padding-left: 30px;
 
             @include range-width(0, 785px) {
               width: auto;
+              border-left: 0;
+              padding-left: 15px;              
             }
 
             &.in_red {
@@ -1061,10 +1176,9 @@ header {
               }
             }
 
-            span {
+            span, .mod_span {
               display: inline-block;
               font-size: 18px;
-              font-weight: 600;
               color: black;
               padding-right: 30px;
 
@@ -1123,6 +1237,32 @@ header {
                 }
               }   
 
+              &.w_4 {
+                width: calc(100% / 4);
+
+                @include range-width(0, 785px) {
+                  display: none;
+                  // width: 100%;
+                  // padding: 0 10px;
+
+                  // &:first-child {
+                  //   padding: 0;
+
+                  //   &:before {
+                  //     width: 100%;
+                  //     padding: 15px;
+                  //     background-color: rgba(215, 215, 215, 1.00);
+                  //     text-align: center;
+                  //     margin-bottom: 20px;
+                  //   }
+                  // }
+
+                  // &:before {
+                  //   padding: 15px 0;
+                  // }
+                }
+              }
+
               @include range-width(0, 785px) {
                 display: block;
                 width: 100%;
@@ -1160,6 +1300,43 @@ header {
             }
           }
         }
+
+        .date_m_boxs {
+          @include range-width(785px) {
+            display: none;
+          }
+          
+          display: inline-block;
+          width: 100%;
+
+          .date_m_title, .date_check, .date_de {
+            display: inline-block;
+            width: 100%;
+            font-size: 16px;
+            color: black;
+            padding: 20px 10px;
+          }
+
+          .date_m_title {
+            background-color: rgba(215, 215, 215, 1.00);
+          }
+
+          .date_check {
+            text-align: left;
+            border-top: 1px solid white;
+          }
+
+          .date_de {
+            padding: 0 10px 20px 10px;
+          } 
+        }
+      }
+
+      .inq_wbg {
+        display: inline-block;
+        width: 100%;
+        background-color: white;
+        padding: 40px 0;
       }
     }
   }
