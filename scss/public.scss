@@ -993,6 +993,15 @@ header {
               }
             }
 
+            &.users {
+              .date_l {
+                width: 170px;               
+              }
+              .date_r {
+                width: calc(100% - 170px);
+              }
+            }
+
             .date_l {
               display: inline-block;
               width: 155px;
@@ -1305,7 +1314,7 @@ header {
           @include range-width(785px) {
             display: none;
           }
-          
+
           display: inline-block;
           width: 100%;
 
