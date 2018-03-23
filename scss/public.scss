@@ -1312,14 +1312,18 @@ header {
         }
 
         .inq_table {
-          // display: table;
-          display: none;
-
+          display: table;
           width: 100%;
 
           @include range-width(0, 785px) {
-            // display: block;
+            display: block;
+          }
+
+          &.tb {
             display: none;
+            @include range-width(0, 785px) {
+              display: none;
+            }
           }
           
           .tr {
@@ -1431,7 +1435,7 @@ header {
         $c: 5;
         @for $i from 1 through $c {
           &[data-i='#{$i}'] {
-            .inq_table:nth-child(#{$i + 2}) {
+            .inq_table.tb:nth-child(#{$i + 2}) {
               display: table !important;
               @include range-width(0, 785px) {
                 display: block !important;
