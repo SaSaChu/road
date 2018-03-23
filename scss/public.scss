@@ -1394,6 +1394,15 @@ header {
                 }
               }
 
+              &.nlb {
+                border-left: 0;
+                text-align: right;
+              }
+
+              &.nlb_red {
+                color: rgba(197, 27, 42, 1.00);
+              }
+
               @include range-width(0, 785px) {
                 display: block;
                 width: 100%;
@@ -1467,10 +1476,39 @@ header {
           .date_check {
             text-align: left;
             border-top: 1px solid white;
+
+            i {
+              padding: 0;
+              font-size: 16px;
+              font-style: normal;
+              color: rgba(197, 27, 42, 1.00);
+            }
+
+            &:before {
+              content: attr(title);
+              font-weight: 600;
+            }
           }
 
           .date_de {
             padding: 0 10px 20px 10px;
+            text-align: left;
+
+            &.down_line {
+              border-bottom: 1px solid white;
+            }
+
+            span {
+              display: inline-block;
+              width: 100%;
+              font-size: 16px;
+              color: black;
+              padding-top: 10px;
+
+              &:before {
+                content: attr(title);
+              }
+            }
           } 
         }
       }
@@ -1596,6 +1634,30 @@ header {
         @include border-radius(3px);
         padding: 10px 20px;
         margin: 0 10px;
+
+        &.a3 {
+          @include range-width(0, 785px) {
+            margin: 0;
+            width: calc(50% - 10px * 3 / 2);
+
+            &:first-child {
+              width: calc(100% - 20px);
+              margin-bottom: 10px;
+            }
+
+            &:nth-child(2) {
+              margin-right: 5px;
+              margin-left: 10px;
+              float: left;
+            }
+
+            &:nth-child(3) {
+              margin-left: 5px;
+              margin-right: 10px;
+              float: left;
+            }
+          }
+        }
 
         @include range-width(0, 495px) {
           padding: 10px;
@@ -1775,6 +1837,13 @@ header {
               padding-left: 0;
               margin-top: 0;
             }
+          }
+
+          b {
+            display: inline-block;
+            font-style: normal;
+            color: rgba(60, 127, 194, 1.00);
+            margin: 0 10px;
           }
 
           a {

@@ -67,6 +67,7 @@ $(function () {
         },
     });
   });
+  
   $('.inq_date').each (function () {
     var $that = $(this).attr ('data-i', 1);
     $that.find ('.d_tab').click (function () {
