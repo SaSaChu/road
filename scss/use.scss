@@ -70,6 +70,15 @@ i {
     border: 1px solid rgba(125, 162, 213, 1.00);
   }
 
+  &.road_50 {
+    width: 50px;
+    margin-right: 10px;
+
+    @include range-width(0, 785px) {
+      margin-top: 10px;
+    }
+  }
+
   &.n_155 {
     width: 155px;
 
@@ -117,6 +126,27 @@ i {
 
   &.con2 {
     margin-bottom: 0;
+  }
+}
+
+.con3 {
+  display: inline-block;
+  float: left;
+  width: 200px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border: 1px solid rgba(113, 151, 206, 1.00);
+  @include border-radius(3px);
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  outline: 0;
+  background: url(../img/aad.png) no-repeat right white;
+
+  @include range-width(0, 785px) {
+    width: calc(100% - 20px);
+    margin: 10px;
   }
 }
 

@@ -95,6 +95,16 @@
             </div>
 
             <div class='date_boxs'>
+              <div class='date_box date_box_50 users'>
+                <div class='date_l'>性 別<i>(必填)</i></div>
+                <div class='date_r'>
+                  <div class='da_de_boxs'><input class='doll' type="radio" name="sex" value="male">男</div>
+                  <div class='da_de_boxs'><input class='doll' type="radio" name="sex" value="male">女</div>
+                </div>
+              </div>
+            </div>
+
+            <div class='date_boxs'>
               <div class='date_box users'>
                 <div class='date_l'>國 籍<i>(必填)</i></div>
                 <div class='date_r'>
@@ -177,30 +187,59 @@
             </div>
 
             <div class='date_boxs'>
-              <div class='date_box users'>
+              <div class='date_box'>
                 <div class='date_l'>通訊地址<i>(必填)</i></div>
                 <div class='date_r'>
-                  <div class='da_de_boxs'>
+                  <div class='da_de_boxs da_100'>
+                    <i class='add_type'>請選擇縣市</i>
                     <select class='con'>
-                      <option value="">新北市</option>
+                      <option value="">請選擇</option>
                       <option value="">新北市</option>
                       <option value="">新北市</option>
                       <option value="">新北市</option>
                     </select>
                   </div>
 
-                  <div class='da_de_boxs'>
+                  <div class='da_de_boxs da_100'>
+                    <i class='add_type'>請選擇鄉鎮市區</i>
                     <select class='con'>
-                      <option value="">板橋區</option>
+                      <option value="">請選擇</option>
                       <option value="">板橋區</option>
                       <option value="">板橋區</option>
                       <option value="">板橋區</option>
                     </select>
                   </div>
 
-                  <div class='da_de_boxs'><input class='name n_155' type="text" name="" value="220"></div>
-                  <div class='da_de_boxs'><input class='name' type="text" name="" value=""><span class='small'>範例：昌吉街55號2樓206室</span></div>
-                  <div class='da_de_boxs'><span class='small blue'>如選擇 宅配領取將以此地址為寄送地址，請務必確實填寫，限台灣境內</span></div>
+                  <div class='da_de_boxs da_100'>                  
+                    <i class='add_type'>道路或街名或村里名稱</i>
+                    <select class='con'>
+                      <option value="">請選擇</option>
+                      <option value="">板橋區</option>
+                      <option value="">板橋區</option>
+                      <option value="">板橋區</option>
+                    </select>
+                    <div class='roadname'>
+                      <input class='name road_50' type="text" name="" value="">
+                      <span class='roadtype'>巷</span>
+                      <input class='name road_50' type="text" name="" value="">
+                      <span class='roadtype'>弄</span>
+                      <input class='name road_50' type="text" name="" value="">
+                      <span class='roadtype'>號之</span>
+                      <input class='name road_50' type="text" name="" value="">
+                      <input class='name road_50' type="text" name="" value="">
+                      <span class='roadtype'>樓之</span>
+                      <input class='name road_50' type="text" name="" value="">
+                      <input class='name road_50' type="text" name="" value="">
+                      <span class='roadtype'>室</span>
+                    </div>
+                  </div>
+
+                  <!-- <div class='da_de_boxs'><input class='name n_155' type="text" name="" value="220"></div> -->
+                  <!-- <div class='da_de_boxs'>
+                    <input class='name' type="text" name="" value="">
+                    <span class='small'>範例：昌吉街55號2樓206室</span>
+                  </div> -->
+                  <div class='da_de_boxs da_100'><span class='small blue'>如選擇 宅配領取將以此地址為寄送地址，請務必確實填寫，限台灣境內</span></div>
                   
                 </div>
               </div>
@@ -222,7 +261,6 @@
                 <div class='date_r'>
                   <div class='da_de_boxs'><span class='small nomal'>緊急聯絡人姓名</span><input class='name n_155' type="text" name="" value="123456789"></div>
                   <div class='da_de_boxs'><span class='small nomal'>關係</span><input class='name n_155' type="text" name="" value="123456789"></div>
-                  <div class='da_de_boxs'><span class='small nomal'>緊急聯絡人電話</span><input class='name n_155' type="text" name="" value="123456789"></div>
                 </div>
               </div>
             </div>
@@ -232,9 +270,15 @@
             <div class='it01 ilb'>團體報名清單</div>
 
             <div class='date_boxs dw'>
-              <div class='d_tab dt_ac' data-text_1='1.台北幸福水漾公園' data-text_2='1.台北'></div>
+              <select class='con3'>
+                <option value="">請選擇場次</option>
+                <option value="">1.台北幸福水漾公園</option>
+                <option value="">2.台中幸福水漾公園</option>
+                <option value="">3.台南幸福水漾公園</option>
+              </select>
+              <!-- <div class='d_tab dt_ac' data-text_1='1.台北幸福水漾公園' data-text_2='1.台北'></div>
               <div class='d_tab' data-text_1='2.台中幸福水漾公園' data-text_2='2.台中'></div>
-              <div class='d_tab' data-text_1='3.台南幸福水漾公園' data-text_2='3.台南'></div>
+              <div class='d_tab' data-text_1='3.台南幸福水漾公園' data-text_2='3.台南'></div> -->
               <a>團體報名上傳表單</a>         
             </div>
 
@@ -344,7 +388,7 @@
             </div>
           </div>
 
-          <div class='inq_date'>
+          <!-- <div class='inq_date'>
             <div class='it01 ilb'>報到方式</div>
 
             <div class='date_boxs'>
@@ -356,7 +400,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>    
 
         <div class='step_btn'>

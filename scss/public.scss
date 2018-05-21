@@ -1072,6 +1072,33 @@ header {
                   width: 100%;
                   margin: 5px 0;
                 }
+
+                .add_type {
+                  display: inline-block;
+                  width: 100%;
+                  font-style: normal;
+                  font-size: 16px;
+                  color: red;
+                  margin: 0 0 10px 0;
+                }
+
+                .roadname {
+                  display: inline-block;
+                  width: 100%;
+
+                  .roadtype {
+                    display: inline-block;
+                    font-style: normal;
+                    font-size: 16px;
+                    color: black;
+                    line-height: 33px;
+                    margin-right: 10px;
+
+                    @include range-width(0, 785px) {
+                      margin-top: 10px;
+                    }
+                  }
+                }
               }
             }
           }
@@ -1717,17 +1744,34 @@ header {
             background-color: rgba(251, 34, 52, 1.00);
           }
 
+          &:nth-child(3) {
+            float: right;
+            background-color: rgba(0, 56, 111, 1.00);
+
+            &:hover, &:active {
+              background-color: rgba(0, 56, 111, .8);
+            }
+          }
+
           @include range-width(0, 615px) {
             width: calc(50% - 10px * 3 / 2);
             padding: 10px;
 
             &:nth-child(1) {
               float: left;
-              margin-right: 5px;
+              width: calc(50% - 10px);
+              margin-right: 0;
             }
             &:nth-child(2) {
               float: right;
-              margin-left: 5px;
+              width: calc(50% - 10px);
+              margin-right: 0;
+            }
+
+            &:nth-child(3) {
+              width: 100%;
+              margin-top: 10px;
+              margin-right: 0;
             }
           }
         }
@@ -1971,6 +2015,16 @@ header {
                   padding: 0;
                   margin: 0;
                 }
+              }
+            }
+
+            .img_boxs {
+              display: inline-block;
+              margin: 10px;
+
+              img {
+                width: 100%;
+                max-width: 770px;
               }
             }
 
