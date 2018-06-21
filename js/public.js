@@ -25,6 +25,9 @@ $(function () {
   });
 
 
+   $('.top_babox').imgLiquid ({ verticalAlign:'center' });
+
+
   // 回到上面按鈕
   $('#top_btn').click (function () {
       $('html, body').animate ({ scrollTop: 0 }, 'slow');
