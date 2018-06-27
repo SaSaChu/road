@@ -1846,6 +1846,27 @@ header {
         width: 100%;
         margin-bottom: 25px;
 
+        .pc {
+          display: inline-block;
+          width: 100%;
+          max-width: 1120px;
+
+          @include range-width(0, 600px) {
+            display: none;
+          }
+        }
+
+        .mo {
+          display: none;
+          @include range-width(0, 600px) {
+            display: inline-block;
+          }
+
+          width: 100%;
+          max-width: 550px;
+        }
+
+
         a {
           display: inline-block;
           padding: 10px 45px;
@@ -1867,6 +1888,7 @@ header {
           &:nth-child(3) {
             float: right;
             background-color: rgba(0, 56, 111, 1.00);
+            margin-right: 0;
 
             &:hover, &:active {
               background-color: rgba(0, 56, 111, .8);
