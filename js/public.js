@@ -25,8 +25,8 @@ $(function () {
   });
 
 
-   $('.top_babox').imgLiquid ({ verticalAlign:'center' });
-
+  $('.top_babox').imgLiquid ({ verticalAlign:'center' });
+  $('.logo_img').imgLiquid ();
 
   // 回到上面按鈕
   $('#top_btn').click (function () {
